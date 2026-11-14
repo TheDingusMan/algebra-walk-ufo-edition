@@ -205,7 +205,6 @@ namespace userconfig {
     export const ARCADE_SCREEN_WIDTH = 320
     export const ARCADE_SCREEN_HEIGHT = 160
 }
-music.play(music.createSong(assets.song`stereoMadnent`), music.PlaybackMode.InBackground)
 game.setGameOverPlayable(false, music.createSong(assets.song`death`), false)
 game.setGameOverPlayable(true, music.createSong(assets.song`win`), false)
 scene.setBackgroundColor(5)
@@ -243,6 +242,10 @@ tiles.placeOnTile(flipPortal2, tiles.getTileLocation(215, 6))
 tiles.placeOnTile(flipPortal3, tiles.getTileLocation(222, 5))
 scene.cameraFollowSprite(cube)
 changeCubeColours()
+for (let index = 0; index < 10; index++) {
+    pause(100)
+    music.play(music.createSong(assets.song`stereoMadnent`), music.PlaybackMode.InBackground)
+}
 game.onUpdate(function () {
     if (tiles.tileAtLocationEquals(tiles.getTileLocation(cube.tilemapLocation().column, 0), assets.tile`color1`)) {
         scene.setBackgroundColor(1)
